@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fraunces (Display) ────────────────────────────────── */
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Cabinet Grotesk (Body) ─────────────────────────────── */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* RK Tours Palette — warm saffron + deep teal + ivory */
+    /* Saffron/Orange primary */
+    --primary: 0.68 0.19 51;
+    --primary-foreground: 0.99 0 0;
+    --primary-hover: 0.62 0.22 48;
+
+    /* Deep Teal secondary */
+    --secondary: 0.38 0.09 198;
+    --secondary-foreground: 0.98 0 0;
+
+    /* Ivory background */
+    --background: 0.98 0.01 80;
+    --foreground: 0.18 0.03 240;
+
+    /* Card */
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 240;
+
+    /* Popover */
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 240;
+
+    /* Muted */
+    --muted: 0.94 0.02 80;
+    --muted-foreground: 0.5 0.03 240;
+
+    /* Accent — warm gold */
+    --accent: 0.88 0.14 82;
+    --accent-foreground: 0.18 0.03 240;
+
+    /* Teal accent variant */
+    --teal: 0.38 0.09 198;
+    --teal-light: 0.6 0.1 198;
+
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    /* Border, input, ring */
+    --border: 0.88 0.03 80;
+    --input: 0.88 0.03 80;
+    --ring: 0.68 0.19 51;
+
+    /* Chart */
+    --chart-1: 0.68 0.19 51;
+    --chart-2: 0.38 0.09 198;
+    --chart-3: 0.76 0.16 80;
+    --chart-4: 0.55 0.14 160;
+    --chart-5: 0.48 0.18 30;
+
+    /* Sidebar */
+    --sidebar: 0.98 0.01 80;
+    --sidebar-foreground: 0.18 0.03 240;
+    --sidebar-primary: 0.68 0.19 51;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.88 0.14 82;
+    --sidebar-accent-foreground: 0.18 0.03 240;
+    --sidebar-border: 0.88 0.03 80;
+    --sidebar-ring: 0.68 0.19 51;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Cabinet Grotesk", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Fraunces", serif;
+  }
+}
+
+/* Custom utility classes */
+@layer utilities {
+  .text-primary-saffron {
+    color: oklch(var(--primary));
+  }
+  .bg-primary-saffron {
+    background-color: oklch(var(--primary));
+  }
+  .bg-teal {
+    background-color: oklch(var(--teal));
+  }
+  .text-teal {
+    color: oklch(var(--teal));
+  }
+  .bg-teal-light {
+    background-color: oklch(var(--teal-light));
+  }
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      oklch(0.1 0.02 240 / 0.82) 0%,
+      oklch(0.1 0.02 240 / 0.55) 55%,
+      oklch(0.1 0.02 240 / 0.28) 100%
+    );
+  }
+  .section-heading::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    background-color: oklch(var(--primary));
+    margin-top: 0.75rem;
+    border-radius: 2px;
+  }
+  .section-heading-center::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    background-color: oklch(var(--primary));
+    margin: 0.75rem auto 0;
+    border-radius: 2px;
+  }
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px oklch(0.1 0.02 240 / 0.12);
+  }
+}
